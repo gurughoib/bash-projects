@@ -26,7 +26,7 @@ fi
 then
 
     echo [✔]::[Internet Connection]: DONE!;
-    echo [x]::[warning]: This Script Needs An Active Internet Connection;
+    echo [x]::[Peringatan]: Kau harus koneksi internet bang biar bisa main tools ini!;
     sleep 2
 
 else
@@ -95,12 +95,12 @@ fi
 	=       --Author by: AngleDarknet--	 =
 	└────────────────────────────────────────┘"
 echo ""
-echo -e "         ========================================"
-echo "         Thanks to: ALLAH. SWT"
-echo "         My Mom and Dad"
-echo "         Ghoib Network"
-echo "         Eki, Fathur & Faris Hibatulloh"
-echo -e "	 ========================================"
+echo -e "         |========================================"
+echo "         |Thanks to: ALLAH. SWT"
+echo "         |My Mom and Dad"
+echo "         |=[-Ghoib Network-]="
+echo "         |Eki, Fathur & Faris Hibatulloh"
+echo -e "	 |========================================"
 echo ""
 echo ""
 #pilihan
@@ -125,9 +125,23 @@ echo ""
 	netdiscover -r $gateway -i $interface
 	elif [ $pil -eq 2 ];
 	then
-	echo  -n "interface: "; read interface
+	echo "  [1]Single Sniff?"; 
+	echo "  [2]Mass Sniff?";
+	echo ""
+	read -p "  [*]Silahkan Pilih: " pils;
+	if [ $pils -eq 1 ];
+	then
+	echo -n "  IP Target: "; read IPtar
+	echo -n "  interface: "; read interfaces
+	echo ""
+	echo "  Tunggu bentar bang...."
+	bettercap -T $IPtar -X -I $interfaces
+	elif [ $pils -eq 2 ];
+	then
+	echo -n "interface: "; read interface
 	echo "Tunggu bentar bang...."
 	bettercap -X -I $interface
+fi
 	elif [ $pil -eq 3 ];
 	then
 	echo -n "Masukan IP: "; read IP
